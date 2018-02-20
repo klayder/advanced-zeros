@@ -25,24 +25,21 @@ for(let key in multipliers){
 
 var conter=0, flag=multipliers[multiplier];
 k=multiplier;
+
   	while(k<number || k==number){
    		var tempK=k;
     		
 
       	while(tempK%multiplier === 0){
-        		if(flag===1){
-        			flag=multipliers[multiplier];
-        			conter++
-        		} else{
-        			flag--;
-        		}
-      			tempK/=multiplier;
+        		
+        		conter++
+        		tempK/=multiplier;
         }
         
 				
       k+=multiplier;
     }
-return (conter);
+return (conter/multipliers[multiplier])^0;
 }
 
 
