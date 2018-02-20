@@ -23,20 +23,26 @@ for(let key in multipliers){
 
 }
 
-var conter=0;
+var conter=0, flag=multipliers[multiplier];
 k=multiplier;
   	while(k<number || k==number){
    		var tempK=k;
-    
+    		
+
       	while(tempK%multiplier === 0){
-        		conter++;
+        		if(flag===1){
+        			flag=multipliers[multiplier];
+        			conter++
+        		} else{
+        			flag--;
+        		}
       			tempK/=multiplier;
         }
         
 				
       k+=multiplier;
     }
-return Math.round(conter/multipliers[multiplier]);
+return (conter);
 }
 
 
