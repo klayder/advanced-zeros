@@ -17,12 +17,17 @@ module.exports = function getZerosCount(number, base) {
 	}
 	return tempObj;
 }
- var multipliers=getSimpleMultipliers(base);
+var multipliers=getSimpleMultipliers(base);
+var arr=[[],[]];
 for(let key in multipliers){
-	var multiplier=Number(key);
+	arr[0].push(Number(key));
+	arr[1].push(Math.pow(Number(key),multipliers[key])/multipliers[key]);
 
 }
-
+var mostBiggerMult=arr[1].reduce(function(prev,curent,index,arr){
+	return arr[prev]<curent?index:prev;
+},0);
+var multiplier= arr[0][mostBiggerMult];	
 var conter=0, flag=multipliers[multiplier];
 k=multiplier;
 
